@@ -50,6 +50,18 @@ struct node* deleteNode(struct node* root,int key){  //100,500  200,500
         }else{
                 //2 child
 
+                //successor -- search smallest node from right side
+                //predecessor --search greatest node from left side
+                //tmp
+                //root -delete
+                tmp = root->right;
+                while(tmp->left != NULL){
+                    tmp=tmp->left;
+                }
+
+                root->data = tmp->data;
+
+                root->right = deleteNode(root->right,tmp->data);//delete
 
         }
 
@@ -150,7 +162,7 @@ void main(){
                         100
                 80             200
              70    90     150      250
-           60                            300
+           60                         300
                                     270
     */
             //deleteNode(root,60); // 0 child
